@@ -1,7 +1,10 @@
 ---
 
 - name: ensure iptables rpm is installed
-  yum: pkg=iptables state=installed
+  yum: 'pkg="{{ item }}" state="installed"'
+  with_items:
+    - 'iptables'
+    - 'libselinux-python'
 
 - name: ensure the firewall is enabled and will start on boot
   service: name=iptables state=started enabled=yes
