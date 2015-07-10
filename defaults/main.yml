@@ -1,0 +1,6 @@
+---
+iptables_allow_icmp: true
+iptables_enable_nat: false
+iptables_allowed_tcp_ports: []
+iptables_allowed_udp_ports: []
+iptables_raw_rules: []
