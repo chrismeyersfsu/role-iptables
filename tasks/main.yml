@@ -14,7 +14,7 @@
 - name: ensure the firewall is enabled and will start on boot
   service:
     name: iptables
-    state:started
+    state: started
     enabled: yes
 
 - name: create iptables configuration
