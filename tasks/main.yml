@@ -1,14 +1,27 @@
 ---
+- include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml'
+      paths: '../vars'
 
 - name: ensure iptables rpm is installed
-  yum: 'pkg="{{ item }}" state="installed"'
-  with_items:
-    - 'iptables'
-    - 'libselinux-python'
+  yum:
+    name: '{{ item }}'
+    state: 'installed'
+  with_items: iptables_rpms
 
 - name: ensure the firewall is enabled and will start on boot
-  service: name=iptables state=started enabled=yes
+  service:
+    name: iptables
+    state:started
+    enabled: yes
 
 - name: create iptables configuration
-  template: src=iptables.j2 dest=/etc/sysconfig/iptables owner=root group=root mode=0600
+  template:
+    src: iptables.j2
+    dest: /etc/sysconfig/iptables
+    owner: root
+    group: root
+    mode: 0600
   notify: restart iptables
