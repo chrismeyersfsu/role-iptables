@@ -1,0 +1,5 @@
+---
+iptables_rpms:
+    - 'iptables'
+    - 'iptables-services'
+    - 'libselinux-python'
