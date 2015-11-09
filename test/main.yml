@@ -17,4 +17,4 @@
     - { role: iptables, iptables_allowed_tcp_ports: "{{ ports }}" }
   tasks:
     - name: Test ports
-    - command: 'echo "hello world"'
+      command: 'echo "hello world"'
