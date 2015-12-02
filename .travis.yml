@@ -31,3 +31,6 @@ script:
   - ansible-playbook -i test/inventory test/main.yml --syntax-check
   - sudo ansible-playbook -i test/inventory -e "provision_docker_privileged=true" test/main.yml
 
+notifications:
+  # notify ansible galaxy of test results
+  webhooks: http://goo.gl/nSuq9h
