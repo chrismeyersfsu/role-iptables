@@ -34,4 +34,4 @@ script:
 
 notifications:
   # notify ansible galaxy of test results
-  webhooks: http://goo.gl/nSuq9h
+  webhooks: http://galaxy-qa.ansible.com/api/v1/notifications/
