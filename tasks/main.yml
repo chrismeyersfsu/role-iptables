@@ -9,7 +9,7 @@
   yum:
     name: '{{ item }}'
     state: 'installed'
-  with_items: iptables_rpms
+  with_items: '{{ iptables_rpms }}'
 
 - name: ensure the firewall is enabled and will start on boot
   service:
